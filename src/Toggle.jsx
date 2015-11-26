@@ -25,8 +25,8 @@ class Toggle extends React.Component {
   
     const children = React.Children.map(this.props.children, (child) => {
       return [
-        <input key={child.props.id + "-input"} id={child.props.id} name={this.props.name} type="radio" checked={this.state.checkedItem === child.props.id} onChange={this.onChange.bind(this, child.props.id)} />,
-        <label key={child.props.id + "-label"} htmlFor={child.props.id} onclick="">{child.props.label}</label>
+        <ToggleItemInput key={child.props.id + "-input"} id={child.props.id} name={this.props.name} checked={this.state.checkedItem === child.props.id} onChange={this.onChange.bind(this, child.props.id)} />,
+        <ToggleItemLabel key={child.props.id + "-label"} id={child.props.id} label={child.props.label} />
       ];
     }, this);
   
@@ -63,6 +63,12 @@ ToggleItem.propTypes = {
   value: React.PropTypes.any,
   checked: React.PropTypes.bool
 };
+
+const ToggleItemInput = ({ id, name, checked, onChange }) => {
+  return <input id={id} name={name} type="radio" checked={checked} onChange={onChange} />;
+};
+
+const ToggleItemLabel = ({id, label}) => <label htmlFor={id} onclick="">{label}</label>;
 
 Toggle.Item = ToggleItem;
  
