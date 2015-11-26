@@ -1,10 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import Light from "./Light";
+import LightComponent from "./Light";
+import ToggleComponent from "./Toggle";
 
-const CssToggleSwitch = {
-  Light
+const ToggleSwitch = {
+  Light: LightComponent, Toggle: ToggleComponent
 };
 
-export default CssToggleSwitch;
+export default ToggleSwitch;
+export const Light = LightComponent;
+export const Toggle = ToggleComponent;

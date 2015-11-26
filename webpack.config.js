@@ -1,11 +1,13 @@
 module.exports = {
   entry: { 
-    "react-css-toggle-switch-with-sourcemaps": "./src/index.js",
+    "react-css-toggle-switch": "./src/index.js",
     docs: "./docs/index.js",
   },
   output: {
     path: __dirname + "/dist",
-    filename: "[name].js"
+    filename: "[name].js",
+    library: "ToggleSwitch",
+    libraryTarget: "var"
   },
   module: {
     loaders: [
@@ -16,14 +18,14 @@ module.exports = {
         query: {
           presets: ["react", "es2015"]
         }
-      },
-      { 
-        test: /\.css$/,
-        loader: "style-loader!css-loader"
       }
     ]
   },
   resolve: {
     extensions: ["", ".webpack.js", ".web.js", ".js", ".jsx"]
+  },
+  externals: {
+    react: "React",
+    "react-dom": "ReactDOM"
   }
 };

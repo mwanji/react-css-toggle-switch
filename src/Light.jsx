@@ -1,22 +1,15 @@
 import React from "react";
 import classnames from "classnames";
 
-export default React.createClass({
-  getDefaultProps() {
-    return {
-      theme: "candy"
-    };
-  },
+class LightComponent extends React.Component {
   render() {
-    console.log("theme=" + this.props.theme);
-    
     const labelClasses = classnames("switch-light", "switch-" + this.props.theme, {
       "switch-candy-blue": this.props.blue === true,
       "switch-candy-yellow": this.props.yellow === true
     });
     
     return (<label className={labelClasses} onclick="">
-      <input type="checkbox" />
+      <input type="checkbox" defaultChecked={this.props.checked} />
       <strong>{this.props.title}</strong>
       <span>
         <span>{this.props.off}</span>
@@ -25,4 +18,11 @@ export default React.createClass({
       </span>
     </label>);
   }
-});
+};
+
+LightComponent.defaultProps = {
+  theme: "candy"
+};
+
+export default LightComponent;
+export const Light = LightComponent;
