@@ -1,7 +1,7 @@
 import classnames from "classnames";
 import React from "react";
 
-class ToggleComponent extends React.Component {
+class Toggle extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -36,11 +36,11 @@ class ToggleComponent extends React.Component {
   }
 }
 
-ToggleComponent.defaultProps = {
+Toggle.defaultProps = {
   theme: "candy"
 };
 
-ToggleComponent.propTypes = {
+Toggle.propTypes = {
   checkedItem: React.PropTypes.string,
   theme: React.PropTypes.string,
   blue: React.PropTypes.bool,
@@ -56,6 +56,6 @@ class ToggleItem extends React.Component {
   }
 }
 
-ToggleComponent.Item = ToggleItem;
+Toggle.Item = ToggleItem;
  
-export default ToggleComponent;
+export default Toggle;

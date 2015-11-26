@@ -1,7 +1,7 @@
 import React from "react";
 import classnames from "classnames";
 
-class LightComponent extends React.Component {
+class Light extends React.Component {
   render() {
     const labelClasses = classnames("switch-light", "switch-" + this.props.theme, {
       "switch-candy-blue": this.props.blue === true,
@@ -20,9 +20,8 @@ class LightComponent extends React.Component {
   }
 };
 
-LightComponent.defaultProps = {
+Light.defaultProps = {
   theme: "candy"
 };
 
-export default LightComponent;
-export const Light = LightComponent;
+export default Light;
